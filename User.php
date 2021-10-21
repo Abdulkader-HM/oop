@@ -54,7 +54,7 @@ class User
         $database = new PDO("mysql:host=localhost;dbname=User_manager;charset=utf8;", "root", "");
         $edit = $database->prepare(" UPDATE signup  SET name='$name'  WHERE id=" . $_GET['edit']);
         $edit->execute();
-        echo'done';
+        echo 'done';
     }
 
     public function delete()
@@ -62,6 +62,6 @@ class User
         $database = new PDO("mysql:host=localhost;dbname=User_manager;charset=utf8;", "root", "");
         $delete = $database->prepare(" DELETE  FROM `signup` WHERE id=" . $_GET['delete']);
         $delete->execute();
-        header('Refresh: 0; url=admin.php ');
+        header('Location: admin.php');
     }
 }
